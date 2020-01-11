@@ -1,12 +1,12 @@
-const qs = require('querystring');
+const qs = require("querystring");
 
-import postThumbnail from './_modules/postThumbnail'
+import postThumbnail from "./_modules/postThumbnail";
 
 exports.handler = (event, context, callback) => {
   const params = qs.parse(event.body);
   const mailAddresses = params.text;
   const channel = params.channel_id;
-  let body = '';
+  let body = "";
 
   if (mailAddresses) {
     const mailAddressObject = mailAddresses.split(/\r\n|\n/);
@@ -17,15 +17,15 @@ exports.handler = (event, context, callback) => {
         channel
       });
     });
-    body = 'プロフィールを取得します:sunglasses:';
+    body = "プロフィールを取得します:sunglasses:";
   } else {
-    body =  '`/getthumbnail hoge@hogeohoge.hoge`の形式で入力してください';
+    body = "`/getthumbnail hoge@hogeohoge.hoge`の形式で入力してください";
   }
 
   callback(null, {
     statusCode: 200,
     headers: {
-      'Content-Type': 'application/json'
+      "Content-Type": "application/json"
     },
     body
   });
