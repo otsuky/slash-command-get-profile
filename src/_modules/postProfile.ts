@@ -1,22 +1,22 @@
 import getUsersProfile from "./getUsersProfile";
 import postMessage from "./postMessage";
 
-const postThumbnail = async options => {
-  const user = await getUsersProfile({
-    mailAddress: options.mailAddress,
-    channel: options.channel
-  });
+type Arg = {
+  mailAddress: string;
+  channel: string;
+};
 
+const postProfile = async ({ mailAddress, channel }: Arg) => {
   if (!user.profile) {
     postMessage({
-      channel: options.channel,
+      channel,
       text: "誰だかわかりませんでした:cry:"
     });
-    return false;
+    return;
   }
 
   postMessage({
-    channel: options.channel,
+    channel: channel,
     text: "",
     blocks: [
       {
@@ -46,4 +46,4 @@ const postThumbnail = async options => {
   });
 };
 
-export default postThumbnail;
+export default postProfile;
