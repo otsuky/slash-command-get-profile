@@ -1,5 +1,15 @@
 {
-  "presets": ["@babel/preset-typescript", "@babel/preset-env"],
+  "presets": [
+    "@babel/preset-typescript",
+    [
+      "@babel/preset-env",
+      {
+        "targets": {
+          "node": true
+        }
+      }
+    ]
+  ],
   "plugins": [
     "@babel/plugin-proposal-class-properties",
     "@babel/plugin-transform-object-assign",
