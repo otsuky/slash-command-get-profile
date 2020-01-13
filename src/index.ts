@@ -48,7 +48,6 @@ const handler: Handler = (
       }
       const profileObj = await getUsersProfile({ mailAddress, channel });
       const userObj = profileObj["user"];
-      console.log(userObj);
       if (userObj) {
         postMessage({
           channel,
