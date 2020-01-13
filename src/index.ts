@@ -1,6 +1,5 @@
 import qs from "querystring";
 import { Handler, Context, Callback, APIGatewayEvent } from "aws-lambda";
-import { WebAPICallResult } from "@slack/web-api";
 import getUsersProfile from "./_modules/getUsersProfile";
 import postMessage from "./_modules/postMessage";
 import createRespBlock from "./_modules/createResp";

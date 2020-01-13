@@ -11,10 +11,8 @@ const postMessage = async ({ channel, text, blocks }: Arg) => {
       text: text || "",
       blocks: blocks
     })
-    .catch(error => {
-      console.log("=======");
-      console.log(error);
-      console.log("=======");
+    .catch(err => {
+      console.log(err);
     });
 };
 
