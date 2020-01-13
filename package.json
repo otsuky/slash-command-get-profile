@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "netlify-lambda build src/",
+    "build": "netlify-lambda build src/ --config ./webpack.functions.js",
     "serve": "netlify-lambda serve src/ --config ./webpack.functions.js"
   },
   "repository": {
