@@ -4,11 +4,10 @@ import { ChatPostMessageArguments } from "@slack/web-api";
 type Arg = ChatPostMessageArguments;
 
 const postMessage = async ({ channel, text, blocks }: Arg) => {
-  console.log(channel, text, blocks);
   return await app.chat
     .postMessage({
       channel: channel,
-      // as_user: false,
+      as_user: false,
       text: text || "",
       blocks: blocks
     })
