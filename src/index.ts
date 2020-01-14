@@ -24,7 +24,6 @@ const regexp = /^[A-Za-z0-9]{1}[A-Za-z0-9_.-]*@{1}[A-Za-z0-9_.-]{1,}\.[A-Za-z0-9
 const noTextErrorMessage = "`/getprofile hoge@hoge.hoge`の形式で入力してね";
 const mailErrorMessage = "メードアドレスが正しくありません";
 const userErrorMessage = "誰だかわかりませんでした:cry:";
-const tryMessage = "プロフィールを取得した:sunglasses:";
 
 const handler: Handler = (
   event: APIGatewayEvent,
@@ -39,8 +38,6 @@ const handler: Handler = (
   let body = "";
 
   if (mailAddressObject) {
-    body = tryMessage;
-
     mailAddressObject.forEach(async mailAddress => {
       if (!regexp.test(mailAddress)) {
         body = `${mailAddress}: ${mailErrorMessage}`;
